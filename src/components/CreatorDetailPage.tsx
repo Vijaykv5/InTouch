@@ -11,7 +11,7 @@ import {
 import { toast } from "react-toastify";
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../utils/firebase-config";
-import { PUBLIC_KEY } from "../utils/constants";
+import { DEVNET_URL, PUBLIC_KEY } from "../utils/constants";
 
 const style = {
   commonInputStyles:
@@ -28,7 +28,7 @@ const style = {
     "bg-white rounded-md shadow-lg p-6 w-full sm:p-10 max-w-4xl mx-auto", 
 };
 
-const Form = ({ contentCreator }) => {
+const Form = ({ contentCreator }: { contentCreator: string }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -131,7 +131,7 @@ const Form = ({ contentCreator }) => {
 };
 
 const Contact1 = () => {
-  const { userName } = useParams();
+  const { userName } = useParams<{ userName?: string }>(); // Make sure to handle optional userName
 
   return (
     <section className={style.commonSectionStyles}>
@@ -139,7 +139,8 @@ const Contact1 = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10">
           <div className="flex flex-col justify-center lg:py-5">
             <h1 className={style.commonTitleStyles}>
-              <span className="text-orange-500">InTouch</span> with {userName}
+              <span className="text-orange-500">InTouch</span> with{" "}
+              {userName || "Guest"}
             </h1>
             <div>
               <br />
@@ -147,17 +148,21 @@ const Contact1 = () => {
                 It&apos;s time to get in touch!
               </h2>
               <p className={style.commonTextStyles}>
-                Use InTouch and send personalised messages to {userName}
+                Use InTouch and send personalised messages to{" "}
+                {userName || "Guest"}
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center lg:pl-12">
-            <Form contentCreator={userName} />
-          </div>
+          {userName && (
+            <div className="flex items-center justify-center lg:pl-12">
+              <Form contentCreator={userName} />
+            </div>
+          )}
         </div>
       </div>
     </section>
   );
 };
+
 
 export default Contact1;
