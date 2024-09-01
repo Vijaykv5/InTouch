@@ -65,7 +65,11 @@ const LandingPage: React.FC = () => {
                 onClick={() => setExpanded(!expanded)}
                 aria-expanded={expanded}
               >
-                
+                {expanded ? (
+                  <FaTimes className="w-6 h-6" />
+                ) : (
+                  <FaBars className="w-6 h-6" />
+                )}
               </button>
             </div>
           </div>
@@ -131,9 +135,10 @@ const LandingPage: React.FC = () => {
                 className="text-gray-500 hover:text-gray-700"
                 aria-label="Close modal"
               >
-               
+                <FaTimes className="w-6 h-6" />
               </button>
             </div>
+
             <p className="text-gray-700 mb-6">
               To get started, please connect your Solana wallet.
             </p>
