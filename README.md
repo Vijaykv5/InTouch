@@ -19,3 +19,11 @@ https://github.com/user-attachments/assets/8052bb0c-e12d-463d-b532-3e62ce806090
 -   **Backend**: FireBase *(for storing content creators info)*
 -   **Blockchain**: Solana 
 -   **Wallet Integration**: `@solana/web3.js`, `@solana/wallet-adapter-react`
+
+
+This is with reference to the ticket #2945
+
+
+## Live Link 
+
+https://intouch-xi.vercel.app/
