@@ -114,7 +114,7 @@ const LandingPage: React.FC = () => {
               <div className="relative w-full max-w-sm mx-auto">
                 <img
                   className="relative  max-w-xs mx-auto sm:max-w-sm rounded-2xl  w-[160%] h-[300px]"
-                  src="https://imgtr.ee/images/2024/09/01/029d92e5931afea0b5f0c308c80954ca.png"
+                  src="https://i.ibb.co/5YrQGBf/Intouch.png"
                   alt="AuraUI Illustration"
                 />
               </div>
